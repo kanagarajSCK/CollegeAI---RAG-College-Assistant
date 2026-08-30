@@ -88,17 +88,17 @@ export const SettingsPage: React.FC = () => {
   };
 
   return (
-    <div className="p-4 sm:p-8 max-w-4xl mx-auto space-y-8">
+    <div className="p-3.5 sm:p-8 max-w-4xl mx-auto space-y-6 sm:space-y-8">
       {/* Header */}
-      <div className="pb-6 border-b border-gray-200">
-        <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Account & System Settings</h1>
-        <p className="text-sm text-gray-500 mt-1">
+      <div className="pb-5 sm:pb-6 border-b border-gray-200">
+        <h1 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight">Account & System Settings</h1>
+        <p className="text-xs sm:text-sm text-gray-500 mt-1">
           Manage your personal profile, security credentials, and view system RAG configuration.
         </p>
       </div>
 
       {/* Profile Info Form */}
-      <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-2xs space-y-5">
+      <div className="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 shadow-2xs space-y-4 sm:space-y-5">
         <div className="flex items-center gap-2.5 pb-3 border-b border-gray-100">
           <UserIcon className="w-5 h-5 text-indigo-600" />
           <h2 className="text-sm font-semibold text-gray-900">Personal Information</h2>
@@ -148,7 +148,7 @@ export const SettingsPage: React.FC = () => {
           <button
             type="submit"
             disabled={profileLoading}
-            className="px-4 py-2 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-xs shadow-indigo-100 transition-colors disabled:opacity-60"
+            className="w-full sm:w-auto px-4 py-2.5 sm:py-2 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 rounded-xl sm:rounded-lg shadow-xs shadow-indigo-100 transition-colors disabled:opacity-60 min-h-[40px]"
           >
             {profileLoading ? 'Saving...' : 'Save Profile Changes'}
           </button>
@@ -156,7 +156,7 @@ export const SettingsPage: React.FC = () => {
       </div>
 
       {/* Change Password Form */}
-      <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-2xs space-y-5">
+      <div className="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 shadow-2xs space-y-4 sm:space-y-5">
         <div className="flex items-center gap-2.5 pb-3 border-b border-gray-100">
           <Lock className="w-5 h-5 text-indigo-600" />
           <h2 className="text-sm font-semibold text-gray-900">Security & Password</h2>
@@ -216,7 +216,7 @@ export const SettingsPage: React.FC = () => {
           <button
             type="submit"
             disabled={passwordLoading}
-            className="px-4 py-2 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-xs shadow-indigo-100 transition-colors disabled:opacity-60"
+            className="w-full sm:w-auto px-4 py-2.5 sm:py-2 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 rounded-xl sm:rounded-lg shadow-xs shadow-indigo-100 transition-colors disabled:opacity-60 min-h-[40px]"
           >
             {passwordLoading ? 'Updating Password...' : 'Update Password'}
           </button>
@@ -224,13 +224,13 @@ export const SettingsPage: React.FC = () => {
       </div>
 
       {/* RAG Infrastructure Status */}
-      <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-2xs space-y-4">
+      <div className="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 shadow-2xs space-y-4">
         <div className="flex items-center gap-2.5 pb-3 border-b border-gray-100">
           <Cpu className="w-5 h-5 text-indigo-600" />
           <h2 className="text-sm font-semibold text-gray-900">RAG Engine Architecture</h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs">
           <div className="p-3.5 bg-gray-50 border border-gray-200 rounded-xl space-y-1">
             <div className="font-semibold text-gray-900 flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
@@ -252,7 +252,7 @@ export const SettingsPage: React.FC = () => {
       </div>
 
       {/* Danger Zone */}
-      <div className="bg-rose-50/50 border border-rose-200 rounded-2xl p-6 shadow-2xs space-y-4">
+      <div className="bg-rose-50/50 border border-rose-200 rounded-2xl p-4 sm:p-6 shadow-2xs space-y-4">
         <div className="flex items-center gap-2 text-rose-900">
           <Trash2 className="w-5 h-5 text-rose-600" />
           <h2 className="text-sm font-semibold">Danger Zone</h2>
@@ -265,7 +265,7 @@ export const SettingsPage: React.FC = () => {
         <button
           id="btn-trigger-delete-account"
           onClick={() => setShowDeleteModal(true)}
-          className="px-4 py-2 text-xs font-semibold text-rose-700 hover:text-white bg-rose-100 hover:bg-rose-600 border border-rose-300 hover:border-transparent rounded-lg transition-colors"
+          className="w-full sm:w-auto px-4 py-2.5 sm:py-2 text-xs font-semibold text-rose-700 hover:text-white bg-rose-100 hover:bg-rose-600 active:bg-rose-700 border border-rose-300 hover:border-transparent rounded-xl sm:rounded-lg transition-colors min-h-[40px]"
         >
           Delete Account and Purge Data
         </button>

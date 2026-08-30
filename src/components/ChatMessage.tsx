@@ -45,38 +45,38 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
   };
 
   return (
-    <div className="py-2.5 px-4 sm:px-8">
+    <div className="py-2 px-3 sm:px-6">
       <div className="max-w-3xl mx-auto">
         {isUser ? (
           /* User Message - Right Aligned Clean Pill Container */
           <div className="flex justify-end">
-            <div className="max-w-[80%] sm:max-w-[70%] bg-indigo-600 text-white p-4 rounded-2xl rounded-tr-none shadow-xs space-y-1">
-              <div className="flex items-center justify-between gap-3 text-[10px] text-indigo-200">
+            <div className="max-w-[90%] sm:max-w-[75%] bg-indigo-600 text-white p-3.5 sm:p-4 rounded-2xl rounded-tr-none shadow-xs space-y-1">
+              <div className="flex items-center justify-between gap-2 text-[10px] text-indigo-200">
                 <span className="font-semibold uppercase tracking-wider">You</span>
                 <span>
                   {new Date(message.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                 </span>
               </div>
-              <p className="text-sm leading-relaxed whitespace-pre-wrap">{message.content}</p>
+              <p className="text-sm leading-relaxed whitespace-pre-wrap break-words">{message.content}</p>
             </div>
           </div>
         ) : (
           /* AI Message - Clean Minimal Card with Avatar & Citations */
-          <div className="flex justify-start items-start gap-3 sm:gap-4">
-            <div className="w-8 h-8 bg-indigo-100 rounded-full flex-shrink-0 flex items-center justify-center text-indigo-600 font-bold text-xs shadow-2xs">
+          <div className="flex justify-start items-start gap-2.5 sm:gap-4">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 bg-indigo-100 rounded-full shrink-0 flex items-center justify-center text-indigo-600 font-bold text-[11px] sm:text-xs shadow-2xs mt-0.5">
               AI
             </div>
 
-            <div className="flex-1 max-w-[85%] sm:max-w-[80%] space-y-3">
+            <div className="flex-1 min-w-0 max-w-[calc(100%-2.25rem)] sm:max-w-[85%] space-y-2.5">
               {/* Message Bubble */}
-              <div className="bg-gray-50 border border-gray-100 p-4 rounded-2xl rounded-tl-none shadow-xs space-y-2">
-                <div className="flex items-center justify-between pb-1 border-b border-gray-100 text-[10px] text-gray-400">
-                  <div className="flex items-center gap-2">
+              <div className="bg-gray-50 border border-gray-100 p-3.5 sm:p-4 rounded-2xl rounded-tl-none shadow-xs space-y-2">
+                <div className="flex items-center justify-between pb-1.5 border-b border-gray-100 text-[10px] text-gray-400">
+                  <div className="flex items-center gap-1.5">
                     <span className="font-bold text-gray-700 uppercase tracking-wider">College AI</span>
                     <span className="px-1.5 py-0.2 bg-indigo-50 text-indigo-600 text-[9px] font-bold uppercase rounded">Grounded</span>
                   </div>
-                  <div className="flex items-center gap-1.5">
-                    <span>
+                  <div className="flex items-center gap-1">
+                    <span className="hidden sm:inline">
                       {new Date(message.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </span>
                     <button
@@ -103,19 +103,19 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
                   </div>
                 </div>
 
-                <div className="markdown-body text-sm leading-relaxed text-gray-800">
+                <div className="markdown-body text-sm leading-relaxed text-gray-800 break-words">
                   <Markdown remarkPlugins={[remarkGfm]}>{message.content}</Markdown>
                 </div>
               </div>
 
               {/* Source Citation Cards */}
               {message.sources && message.sources.length > 0 && (
-                <div className="bg-white border border-gray-200 rounded-xl p-3.5 shadow-2xs space-y-2">
-                  <div className="flex items-center justify-between">
-                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+                <div className="bg-white border border-gray-200 rounded-xl p-3 sm:p-3.5 shadow-2xs space-y-2">
+                  <div className="flex items-center justify-between gap-1">
+                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest truncate">
                       Sources & Citations ({message.sources.length})
                     </p>
-                    <span className="text-[10px] text-gray-400">Click to view verified excerpt</span>
+                    <span className="text-[10px] text-gray-400 shrink-0">Tap to inspect</span>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -123,9 +123,9 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
                       <div
                         key={idx}
                         onClick={() => onViewCitation?.(src)}
-                        className="flex items-center gap-2.5 p-2 bg-gray-50/70 hover:bg-indigo-50/50 border border-gray-100 hover:border-indigo-200 rounded-lg group cursor-pointer transition-all"
+                        className="flex items-center gap-2 p-2 bg-gray-50/70 hover:bg-indigo-50/50 active:bg-indigo-50/70 border border-gray-100 hover:border-indigo-200 rounded-lg group cursor-pointer transition-all"
                       >
-                        <div className={`px-1.5 py-1 rounded text-[10px] font-bold uppercase border ${getDocBadgeColor(src.filename)}`}>
+                        <div className={`px-1.5 py-0.5 rounded text-[9px] font-bold uppercase border shrink-0 ${getDocBadgeColor(src.filename)}`}>
                           {getDocType(src.filename)}
                         </div>
                         <div className="flex-1 min-w-0">
@@ -136,7 +136,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({
                             Page {src.pageNumber || 1} • {Math.round(src.score * 100)}% match
                           </p>
                         </div>
-                        <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                        <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-indigo-600 shrink-0" />
                       </div>
                     ))}
                   </div>

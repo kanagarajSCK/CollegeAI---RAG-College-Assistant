@@ -118,17 +118,17 @@ export const ChatPage: React.FC<ChatPageProps> = ({
   const indexedDocs = documents.filter(d => d.status === 'Indexed');
 
   return (
-    <div className="flex flex-col h-[calc(100vh-3.5rem)] lg:h-screen bg-white">
+    <div className="flex flex-col h-[calc(100dvh-3.5rem)] lg:h-screen bg-white">
       {/* Header */}
-      <header className="h-16 flex items-center justify-between px-6 bg-white border-b border-gray-100 z-10 shrink-0">
-        <div className="flex items-center gap-3 min-w-0 pr-2">
+      <header className="h-14 sm:h-16 flex items-center justify-between px-3 sm:px-6 bg-white border-b border-gray-100 z-10 shrink-0 gap-2">
+        <div className="flex items-center gap-2 min-w-0 pr-1 flex-1">
           {isEditingTitle ? (
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 w-full max-w-xs">
               <input
                 type="text"
                 value={titleInput}
                 onChange={e => setTitleInput(e.target.value)}
-                className="text-sm font-semibold px-2 py-1 bg-gray-50 border border-indigo-500 rounded-md text-gray-900 focus:outline-none"
+                className="text-xs sm:text-sm font-semibold px-2 py-1 bg-gray-50 border border-indigo-500 rounded-md text-gray-900 focus:outline-none w-full"
                 autoFocus
                 onKeyDown={e => {
                   if (e.key === 'Enter') handleSaveTitle();
@@ -137,23 +137,23 @@ export const ChatPage: React.FC<ChatPageProps> = ({
               />
               <button
                 onClick={handleSaveTitle}
-                className="p-1 text-emerald-600 hover:bg-emerald-50 rounded"
+                className="p-1.5 text-emerald-600 hover:bg-emerald-50 rounded shrink-0"
               >
                 <Check className="w-4 h-4" />
               </button>
               <button
                 onClick={() => setIsEditingTitle(false)}
-                className="p-1 text-gray-400 hover:bg-gray-100 rounded"
+                className="p-1.5 text-gray-400 hover:bg-gray-100 rounded shrink-0"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
           ) : (
-            <div className="flex items-center gap-3 min-w-0">
-              <h2 className="font-medium text-gray-800 text-sm truncate">
+            <div className="flex items-center gap-2 min-w-0">
+              <h2 className="font-medium text-gray-800 text-xs sm:text-sm truncate max-w-[150px] sm:max-w-xs">
                 {currentConversation?.title || 'College Information Inquiry'}
               </h2>
-              <span className="px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold uppercase rounded shrink-0">
+              <span className="hidden sm:inline-flex px-1.5 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold uppercase rounded shrink-0">
                 RAG Active
               </span>
               {currentConversation && (
@@ -163,7 +163,7 @@ export const ChatPage: React.FC<ChatPageProps> = ({
                     setTitleInput(currentConversation.title);
                   }}
                   title="Rename Title"
-                  className="p-1 text-gray-400 hover:text-gray-700 rounded transition-colors"
+                  className="p-1.5 text-gray-400 hover:text-gray-700 rounded transition-colors shrink-0"
                 >
                   <Edit2 className="w-3.5 h-3.5" />
                 </button>
@@ -173,16 +173,16 @@ export const ChatPage: React.FC<ChatPageProps> = ({
         </div>
 
         {/* Header Right Controls */}
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
           {/* Document Scope Filter */}
           <div className="relative flex items-center">
-            <Filter className="w-3.5 h-3.5 text-gray-400 absolute left-2.5 pointer-events-none" />
+            <Filter className="w-3.5 h-3.5 text-gray-400 absolute left-2 sm:left-2.5 pointer-events-none" />
             <select
               value={docFilter}
               onChange={e => setDocFilter(e.target.value)}
-              className="pl-8 pr-7 py-1.5 text-xs bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg text-gray-700 font-medium focus:outline-none focus:border-indigo-500 cursor-pointer appearance-none transition-colors"
+              className="pl-7 sm:pl-8 pr-6 sm:pr-7 py-1.5 text-xs bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg text-gray-700 font-medium focus:outline-none focus:border-indigo-500 cursor-pointer appearance-none transition-colors max-w-[120px] sm:max-w-[180px] truncate"
             >
-              <option value="all">All Documents ({indexedDocs.length})</option>
+              <option value="all">All Docs ({indexedDocs.length})</option>
               {indexedDocs.map(d => (
                 <option key={d._id} value={d._id}>
                   {d.originalName || d.filename}
@@ -191,8 +191,8 @@ export const ChatPage: React.FC<ChatPageProps> = ({
             </select>
           </div>
 
-          <span className="hidden sm:inline text-xs text-gray-400">
-            {indexedDocs.length} Docs Indexed
+          <span className="hidden md:inline text-xs text-gray-400">
+            {indexedDocs.length} Docs
           </span>
 
           {currentConversation && messages.length > 0 && (
@@ -275,14 +275,14 @@ export const ChatPage: React.FC<ChatPageProps> = ({
 
       {/* Zero Documents Notice Banner */}
       {indexedDocs.length === 0 && (
-        <div className="px-6 py-2 bg-amber-50 border-t border-amber-200 text-xs text-amber-800 flex items-center justify-between shrink-0">
+        <div className="px-3 sm:px-6 py-2.5 bg-amber-50 border-t border-amber-200 text-xs text-amber-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 shrink-0">
           <div className="flex items-center gap-2">
             <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
-            <span>No documents indexed yet. Upload documents or load sample packs to get answers.</span>
+            <span>No documents indexed yet. Upload documents to ground AI responses.</span>
           </div>
           <button
             onClick={() => onNewChat()}
-            className="underline font-semibold hover:text-amber-900"
+            className="underline font-semibold hover:text-amber-900 text-xs"
           >
             Go to Documents
           </button>
@@ -290,10 +290,10 @@ export const ChatPage: React.FC<ChatPageProps> = ({
       )}
 
       {/* Bottom Controls Area */}
-      <div className="p-4 sm:p-6 pt-0 bg-white shrink-0">
+      <div className="p-3 sm:p-6 pt-0 bg-white shrink-0">
         <div className="max-w-3xl mx-auto">
           {/* Suggestions Pills */}
-          <div className="flex gap-2 mb-3 overflow-x-auto pb-1 no-scrollbar">
+          <div className="flex gap-1.5 sm:gap-2 mb-2 sm:mb-3 overflow-x-auto pb-1.5 no-scrollbar -mx-3 px-3 sm:mx-0 sm:px-0 touch-pan-x">
             {QUICK_SUGGESTIONS.map((q, idx) => (
               <button
                 key={idx}
@@ -301,7 +301,7 @@ export const ChatPage: React.FC<ChatPageProps> = ({
                   setInputText(q);
                   textareaRef.current?.focus();
                 }}
-                className="text-xs py-1.5 px-3 border border-gray-200 rounded-full text-gray-600 hover:border-indigo-300 hover:text-indigo-600 bg-white transition-colors whitespace-nowrap shrink-0"
+                className="text-xs py-1.5 px-3 border border-gray-200 rounded-full text-gray-600 hover:border-indigo-300 hover:text-indigo-600 bg-white active:bg-gray-50 transition-colors whitespace-nowrap shrink-0"
               >
                 {q}
               </button>
@@ -317,15 +317,15 @@ export const ChatPage: React.FC<ChatPageProps> = ({
               value={inputText}
               onChange={handleInput}
               onKeyDown={handleKeyDown}
-              placeholder="Ask about your college regulations, fees, dates..."
-              className="w-full py-3.5 pl-5 pr-14 bg-white border border-gray-200 rounded-2xl shadow-xs focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-sm transition-all placeholder:text-gray-400 resize-none max-h-40 leading-relaxed"
+              placeholder="Ask about college regulations, fees, dates..."
+              className="w-full py-3 sm:py-3.5 pl-4 sm:pl-5 pr-12 sm:pr-14 bg-white border border-gray-200 rounded-2xl shadow-xs focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-base sm:text-sm transition-all placeholder:text-gray-400 resize-none max-h-32 sm:max-h-40 leading-relaxed"
             />
             <button
               id="btn-send-message"
               type="button"
               disabled={!inputText.trim() || sendingMessage}
               onClick={handleSend}
-              className="absolute right-3 p-2 bg-indigo-600 text-white rounded-xl shadow-md shadow-indigo-100 hover:bg-indigo-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="absolute right-2 sm:right-3 p-2 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center bg-indigo-600 text-white rounded-xl shadow-md shadow-indigo-100 hover:bg-indigo-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               title="Send Message"
             >
               {sendingMessage ? (
@@ -336,8 +336,8 @@ export const ChatPage: React.FC<ChatPageProps> = ({
             </button>
           </div>
 
-          <p className="text-[10px] text-center text-gray-400 mt-2.5 tracking-wide uppercase font-medium">
-            AI grounded in uploaded documents. Always verify critical dates with the registrar office.
+          <p className="text-[10px] text-center text-gray-400 mt-2 tracking-wide uppercase font-medium">
+            AI grounded in campus documents.
           </p>
         </div>
       </div>

@@ -16,11 +16,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onOpenSidebar }) => {
       case 'dashboard':
         return 'Dashboard';
       case 'chat':
-        return 'College AI Assistant';
+        return 'AI Assistant';
       case 'documents':
-        return 'Documents & Knowledge Base';
+        return 'Documents';
       case 'settings':
-        return 'Account Settings';
+        return 'Settings';
       default:
         return 'CollegeAI';
     }
@@ -29,31 +29,32 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onOpenSidebar }) => {
   return (
     <header
       id="app-navbar"
-      className="sticky top-0 z-30 flex items-center justify-between h-14 px-4 bg-white border-b border-gray-200 lg:hidden"
+      className="sticky top-0 z-30 flex items-center justify-between h-14 px-3 sm:px-4 bg-white/95 backdrop-blur-xs border-b border-gray-200 lg:hidden shrink-0"
     >
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2.5 min-w-0">
         <button
           onClick={onOpenSidebar}
-          className="p-1.5 -ml-1 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+          className="p-2 -ml-1 text-gray-700 hover:text-gray-900 active:bg-gray-100 rounded-lg transition-colors flex items-center justify-center min-w-[40px] min-h-[40px]"
           aria-label="Open navigation menu"
         >
           <Menu className="w-5 h-5" />
         </button>
 
-        <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-indigo-600 text-white flex items-center justify-center shadow-xs">
+        <div className="flex items-center gap-2 min-w-0">
+          <div className="w-7 h-7 rounded-lg bg-indigo-600 text-white flex items-center justify-center shadow-2xs shrink-0">
             <GraduationCap className="w-4 h-4" />
           </div>
-          <span className="font-semibold text-sm text-gray-900">{getTitle()}</span>
+          <span className="font-semibold text-sm text-gray-900 truncate">{getTitle()}</span>
         </div>
       </div>
 
-      <div className="flex items-center gap-2">
-        <div className="w-7 h-7 rounded-full bg-indigo-600 text-white text-xs font-semibold flex items-center justify-center">
+      <div className="flex items-center gap-2 shrink-0">
+        <div className="w-8 h-8 rounded-full bg-indigo-600 text-white text-xs font-semibold flex items-center justify-center shadow-2xs">
           {user?.name?.charAt(0).toUpperCase() || 'U'}
         </div>
       </div>
     </header>
   );
 };
+
 

@@ -1,0 +1,25 @@
+[
+  {
+    "_id": "conv_6f5df3beb02a1934",
+    "userId": "usr_b8c9b0b538213dbf",
+    "title": "Hi",
+    "createdAt": "2026-08-30T12:32:12.145Z",
+    "updatedAt": "2026-08-30T12:33:19.900Z"
+  },
+  {
+    "_id": "conv_9faf9fbc1e2992da",
+    "userId": "usr_d8953aa964df5e86",
+    "title": "What are the hostel quiet hours and gate timi",
+    "createdAt": "2026-08-30T12:41:02.298Z",
+    "updatedAt": "2026-08-30T12:41:07.839Z",
+    "lastMessagePreview": "I couldn't find this information in the uploaded college documents."
+  },
+  {
+    "_id": "conv_1cd4ae8578a7749a",
+    "userId": "usr_d8953aa964df5e86",
+    "title": "What is the minimum attendance requirement an",
+    "createdAt": "2026-08-30T12:41:36.764Z",
+    "updatedAt": "2026-08-30T12:41:40.401Z",
+    "lastMessagePreview": "Based on the provided college documents, here is the information regarding your "
+  }
+]

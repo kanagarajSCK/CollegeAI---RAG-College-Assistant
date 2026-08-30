@@ -1,0 +1,6 @@
+{
+  "name": "CollegeAI - RAG College Assistant",
+  "description": "Production-style RAG-based AI assistant for college documents, notices, regulations, circulars, and academic information with verifiable citations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "_id": "msg_5b5ae7d316a87298",
+    "conversationId": "conv_9faf9fbc1e2992da",
+    "userId": "usr_d8953aa964df5e86",
+    "role": "user",
+    "content": "What are the hostel quiet hours and gate timings?",
+    "createdAt": "2026-08-30T12:41:02.298Z"
+  },
+  {
+    "_id": "msg_9d96cf333535567d",
+    "conversationId": "conv_9faf9fbc1e2992da",
+    "userId": "usr_d8953aa964df5e86",
+    "role": "assistant",
+    "content": "I couldn't find this information in the uploaded college documents.",
+    "sources": [
+      {
+        "documentId": "doc_f57300ef3b80a38d",
+        "filename": "Academic Regulations, Grading System & Exam Fees.pdf",
+        "chunkIndex": 2,
+        "pageNumber": 1,
+        "snippet": "C (Average / Pass): 50% to 54% | Grade Point: 5.0\n- Grade F (Fail): Below 50% | Grade Point: 0.0 (Must reappear in supplementary exam)\n\n3. REVALUATION & SCRIPT INSPECTION PROCEDURE:\n- Students can apply for photocopy of evaluated answer scripts withi...",
+        "score": 0.6
+      },
+      {
+        "documentId": "doc_f57300ef3b80a38d",
+        "filename": "Academic Regulations, Grading System & Exam Fees.pdf",
+        "chunkIndex": 0,
+        "pageNumber": 1,
+        "snippet": "EXAMINATION REGULATIONS & EVALUATION SYSTEM\nOffice of the Controller of Examinations\n\n1. EXAMINATION FEE DETAILS:\n- Regular Semester End Examination Fee: $50 (or ₹1,500) per semester, payable along with the tuition installment.\n- Supplementary / Back...",
+        "score": 0.59
+      },
+      {
+        "documentId": "doc_f57300ef3b80a38d",
+        "filename": "Academic Regulations, Grading System & Exam Fees.pdf",
+        "chunkIndex": 1,
+        "pageNumber": 1,
+        "snippet": "(or ₹450) per course/subject.\n- Grade Revaluation / Answer Script Verification Fee: $25 (or ₹750) per subject.\n- Official Transcript Issuance Fee: $10 (or ₹300) per copy.\n\n2. GRADING SYSTEM & GRADE POINT EQUIVALENCY:\n- Grade O (Outstanding): 90% and ...",
+        "score": 0.59
+      }
+    ],
+    "createdAt": "2026-08-30T12:41:07.839Z"
+  },
+  {
+    "_id": "msg_2db4a1c4ebf8c81d",
+    "conversationId": "conv_1cd4ae8578a7749a",
+    "userId": "usr_d8953aa964df5e86",
+    "role": "user",
+    "content": "What is the minimum attendance requirement and the fee for revaluation per paper?",
+    "createdAt": "2026-08-30T12:41:36.765Z"
+  },
+  {
+    "_id": "msg_6f9d8f017566d191",
+    "conversationId": "conv_1cd4ae8578a7749a",
+    "userId": "usr_d8953aa964df5e86",
+    "role": "assistant",
+    "content": "Based on the provided college documents, here is the information regarding your request:\n\n### **Revaluation Fee**\nThe fee for **Grade Revaluation / Answer Script Verification** is **$25 (or ₹750) per subject**.\n\n### **Minimum Attendance Requirement**\nI couldn't find this information in the uploaded college documents.",
+    "sources": [
+      {
+        "documentId": "doc_f57300ef3b80a38d",
+        "filename": "Academic Regulations, Grading System & Exam Fees.pdf",
+        "chunkIndex": 1,
+        "pageNumber": 1,
+        "snippet": "(or ₹450) per course/subject.\n- Grade Revaluation / Answer Script Verification Fee: $25 (or ₹750) per subject.\n- Official Transcript Issuance Fee: $10 (or ₹300) per copy.\n\n2. GRADING SYSTEM & GRADE POINT EQUIVALENCY:\n- Grade O (Outstanding): 90% and ...",
+        "score": 0.74
+      },
+      {
+        "documentId": "doc_f57300ef3b80a38d",
+        "filename": "Academic Regulations, Grading System & Exam Fees.pdf",
+        "chunkIndex": 0,
+        "pageNumber": 1,
+        "snippet": "EXAMINATION REGULATIONS & EVALUATION SYSTEM\nOffice of the Controller of Examinations\n\n1. EXAMINATION FEE DETAILS:\n- Regular Semester End Examination Fee: $50 (or ₹1,500) per semester, payable along with the tuition installment.\n- Supplementary / Back...",
+        "score": 0.73
+      },
+      {
+        "documentId": "doc_f57300ef3b80a38d",
+        "filename": "Academic Regulations, Grading System & Exam Fees.pdf",
+        "chunkIndex": 2,
+        "pageNumber": 1,
+        "snippet": "C (Average / Pass): 50% to 54% | Grade Point: 5.0\n- Grade F (Fail): Below 50% | Grade Point: 0.0 (Must reappear in supplementary exam)\n\n3. REVALUATION & SCRIPT INSPECTION PROCEDURE:\n- Students can apply for photocopy of evaluated answer scripts withi...",
+        "score": 0.71
+      }
+    ],
+    "createdAt": "2026-08-30T12:41:40.401Z"
+  }
+]
